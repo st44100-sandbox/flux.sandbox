@@ -4,21 +4,21 @@ import ReactDOM from 'react-dom'
 // enter point
 import AppConstant from './constants/AppConstants'
 import AppDispatcher from './dispatcher/AppDispatcher'
-import TrackStore from './stores/TrackStore'
-import TrackAction from './actions/TrackAction'
-import {fetchByArtist, fetchByCountry} from './actions/TrackAction'
-import TrackList from './views/trackList.jsx'
-import TrackForm from './views/trackForm.jsx'
+import PostStore from './stores/PostStore'
+import PostAction from './actions/PostAction'
+import {fetchByArtist, fetchByCountry} from './actions/PostAction'
+import PostList from './views/postList.jsx'
+import PostForm from './views/postForm.jsx'
 
 console.log('Entey point2');
 console.log('Constants', AppConstant);
 console.log('Dispacher', AppDispatcher);
-console.log('Store', TrackStore);
-console.log('Actions', TrackAction, fetchByArtist, fetchByCountry);
-console.log('TrackList', TrackList);
+console.log('Store', PostStore);
+console.log('Actions', PostAction, fetchByArtist, fetchByCountry);
+console.log('PostList', PostList);
 
 
-ReactDOM.render(React.createElement(TrackForm), document.getElementById('trackForm'))
-ReactDOM.render(React.createElement(TrackList), document.getElementById('trackList'))
+ReactDOM.render(React.createElement(PostForm), document.getElementById('postForm'))
+ReactDOM.render(React.createElement(PostList), document.getElementById('postList'))
 
 

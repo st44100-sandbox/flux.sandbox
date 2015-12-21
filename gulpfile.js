@@ -17,7 +17,12 @@ function compile(watch) {
 
   function rebundle() {
     bundler.bundle()
-    .on('error', function(err) { console.error(err); this.emit('end'); })
+    .on('error', function(err) {
+        console.error(err); this.emit('end');
+    })
+    .on('end', function(src){
+        console.log('...finish.');
+    })
     .pipe(source('index.js'))
     .pipe(buffer())
     .pipe(gulp.dest('./dist/'));

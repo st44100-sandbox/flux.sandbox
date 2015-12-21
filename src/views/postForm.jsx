@@ -1,19 +1,21 @@
 import React from 'react'
 import LinkedStateMixin from 'react-addons-linked-state-mixin'
-import {fetchByArtist, fetchByCountry} from '../actions/TrackAction'
+import {fetchById, fetchAll} from '../actions/PostAction'
 
 export default React.createClass({
     mixins: [LinkedStateMixin],
     getInitialState() {
         return {
-            inputArtist: 'radiohaed'
+            postId: ''
         }
     },
     handleSubmit(e) {
         e.preventDefault()
-        var artist = this.state.inputArtist;
-        if (artist) {
-            fetchByArtist(artist)
+        var postId = this.state.postId;
+        if (postId) {
+            fetchById(postId)
+        } else {
+            fetchAll()
         }
     },
 
@@ -21,9 +23,9 @@ export default React.createClass({
         return (
             <form className="fron-horizontal" role="form" onSubmit={this.handleSubmit} >
                 <div className="form-group">
-                    <label htmlFor="js-input-location" className="col-sm-1 control-label">Artist</label>
+                    <label htmlFor="js-input-location" className="col-sm-1 control-label">POST ID</label>
                     <div className="col-sm-11">
-                    <input type="text" className="form-control" placeholder="Input Artist Name" valueLink={this.linkState('inputArtist')} required />
+                    <input type="text" className="form-control" placeholder="Input post ID for fetch" valueLink={this.linkState('postId')} />
 
                     </div>
                 </div>
