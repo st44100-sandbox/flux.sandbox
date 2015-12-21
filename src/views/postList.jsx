@@ -1,6 +1,10 @@
 import React from 'react'
 import PostStore from '../stores/PostStore'
 
+/**
+ * ViewはStoreのへ変更をlistenする。
+ * Actionを発行するViewの場合は, Actionをコールする。
+ */
 export default React.createClass({
     getInitialState() {
         return {
